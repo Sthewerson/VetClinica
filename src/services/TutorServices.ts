@@ -4,7 +4,7 @@ import { Tutor } from "../entities/Tutor";
 export class TutorService {
   private tutorRepository = getRepository(Tutor);
 
-  async getAllTutors(): Promise<Tutor[]> {
+  async getTutors(): Promise<Tutor[]> {
     return await this.tutorRepository.find({ relations: ["pets"] });
   }
 

@@ -6,7 +6,7 @@ const tutorService = new TutorService();
 
 export async function getTutors(req: Request, res: Response) {
   try {
-    const tutors = await tutorService.getAllTutors();
+    const tutors = await tutorService.getTutors();
     res.status(200).json(tutors);
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
