@@ -9,6 +9,6 @@ import {
 const router = Router();
 
 router.get("/tutors", getTutors);
-router.post("/tutors", createTutor);
-router.put("/tutors/:id", updateTutor);
-router.delete("/tutors/:id", deleteTutor);
+router.post("/tutor", createTutor);
+router.put("/tutor/:id", updateTutor);
+router.delete("/tutor/:id", deleteTutor);
