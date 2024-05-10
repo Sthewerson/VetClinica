@@ -17,6 +17,9 @@ export class Tutor {
   @Column()
   phone: string;
 
+  @Column()
+  zipCode: string;
+
   @OneToMany(() => Pet, (pet) => pet.tutor)
   pets: Pet[];
 }

@@ -15,9 +15,15 @@ export async function getTutors(req: Request, res: Response) {
 
 export async function createTutor(req: Request, res: Response) {
   try {
-    const tutor = req.body as Tutor;
-    const newTutor = await tutorService.createTutor(tutor);
-    res.status(200).json(newTutor);
+    const { name, email, phone, dateOfBirth, zipCode } = req.body as Tutor;
+    const newTutor = await tutorService.createTutor(
+      name,
+      email,
+      phone,
+      dateOfBirth,
+      zipCode
+    );
+    res.status(201).json(newTutor);
   } catch (error) {
     res.status(400).json({ message: "Bad request" });
   }
@@ -26,8 +32,15 @@ export async function createTutor(req: Request, res: Response) {
 export async function updateTutor(req: Request, res: Response) {
   try {
     const id = parseInt(req.params.id);
-    const tutor = req.body as Tutor;
-    await tutorService.updateTutor(id, tutor);
+    const { name, email, phone, dateOfBirth, zipCode } = req.body;
+    await tutorService.updateTutor(
+      id,
+      name,
+      email,
+      phone,
+      dateOfBirth,
+      zipCode
+    );
     res.status(200).end();
   } catch (error) {
     res.status(400).json({ message: "Bad request" });

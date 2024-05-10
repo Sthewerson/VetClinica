@@ -8,12 +8,37 @@ export class TutorService {
     return await this.tutorRepository.find({ relations: ["pets"] });
   }
 
-  async createTutor(data: Tutor): Promise<Tutor> {
-    return await this.tutorRepository.save(data);
+  async createTutor(
+    name: string,
+    email: string,
+    phone: string,
+    dateOfBirth: Date,
+    zipCode: string
+  ): Promise<Tutor> {
+    const tutor = new Tutor();
+    tutor.name = name;
+    tutor.email = email;
+    tutor.phone = phone;
+    tutor.dateOfBirth = dateOfBirth;
+    tutor.zipCode = zipCode;
+    return await this.tutorRepository.save(tutor);
   }
 
-  async updateTutor(id: number, data: Tutor): Promise<void> {
-    await this.tutorRepository.update(id, data);
+  async updateTutor(
+    id: number,
+    name: string,
+    email: string,
+    phone: string,
+    dateOfBirth: Date,
+    zipCode: string
+  ): Promise<void> {
+    await this.tutorRepository.update(id, {
+      name,
+      email,
+      phone,
+      dateOfBirth,
+      zipCode,
+    });
   }
 
   async deleteTutor(id: number): Promise<void> {
