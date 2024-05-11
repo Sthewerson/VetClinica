@@ -56,3 +56,4 @@ export class PetService {
     await this.petRepository.delete(id);
   }
 }
+export default PetService;

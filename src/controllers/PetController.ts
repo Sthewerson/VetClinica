@@ -6,9 +6,9 @@ const petService = new PetService();
 export async function getPets(req: Request, res: Response) {
   try {
     const pets = await petService.getPets();
-    res.status(200).json(pets);
+    return res.status(200).json(pets);
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 }
 
@@ -23,9 +23,9 @@ export async function createPet(req: Request, res: Response) {
       dateOfBirth,
       tutorId
     );
-    res.status(201).json(newPet);
+    return res.status(201).json(newPet);
   } catch (error) {
-    res.status(400).json({ message: "Bad request" });
+    return res.status(400).json({ message: "Bad request" });
   }
 }
 
@@ -34,9 +34,9 @@ export async function updatePet(req: Request, res: Response) {
     const id = parseInt(req.params.id);
     const { name, species, carry, weight, dateOfBirth } = req.body;
     await petService.updatePet(id, name, species, carry, weight, dateOfBirth);
-    res.status(200).end();
+    return res.status(200).end();
   } catch (error) {
-    res.status(400).json({ message: "Bad request" });
+    return res.status(400).json({ message: "Bad request" });
   }
 }
 
@@ -44,8 +44,8 @@ export async function deletePet(req: Request, res: Response) {
   try {
     const id = parseInt(req.params.id);
     await petService.deletePet(id);
-    res.status(200).end();
+    return res.status(200).end();
   } catch (error) {
-    res.status(400).json({ message: "Bad request" });
+    return res.status(400).json({ message: "Bad request" });
   }
 }
