@@ -1,9 +1,11 @@
-import { Tutor } from "./entities/Tutor";
-import { Pet } from "./entities/Pet";
+import { DataSource } from "typeorm";
+import Entities from "./entities";
+import Migrations from "./migrations";
 
-export const ormconfig = {
+export const AppDataSource = new DataSource({
   type: "sqlite",
   database: "database.sqlite",
-  entities: [Tutor, Pet],
-  migrations: ["src/migrations/*.ts"],
-};
+  logging: true,
+  entities: [...Entities],
+  migrations: [...Migrations],
+});

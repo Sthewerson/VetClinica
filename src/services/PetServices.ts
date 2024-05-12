@@ -1,9 +1,10 @@
-import { getRepository } from "typeorm";
+import { AppDataSource } from "../ormconfig";
 import { Pet } from "../entities/Pet";
 import { Tutor } from "../entities/Tutor";
-export class PetService {
-  private petRepository = getRepository(Pet);
-  private tutorRepository = getRepository(Tutor);
+
+class PetService {
+  private petRepository = AppDataSource.getRepository(Pet);
+  private tutorRepository = AppDataSource.getRepository(Tutor);
 
   async getPets(): Promise<Pet[]> {
     return await this.petRepository.find();
@@ -56,4 +57,6 @@ export class PetService {
     await this.petRepository.delete(id);
   }
 }
-export default PetService;
+const petService = new PetService();
+
+export { petService };
