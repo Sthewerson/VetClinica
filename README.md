@@ -20,5 +20,8 @@ npm run deev
 - Nodemon
 - ESLint
 - Prettier
+  
+## 📖 Documentação da API
+A documentação da API foi gerada utilizando Swagger e está disponível em http://localhost:3000/api-docs.
 
 
