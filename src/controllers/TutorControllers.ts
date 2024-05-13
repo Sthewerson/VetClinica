@@ -39,7 +39,7 @@ class TutorController {
         dateOfBirth,
         zipCode
       );
-      return res.status(200).end();
+      return res.status(200).json(req.body).end;
     } catch (error) {
       return res.status(400).json({ message: "Bad request" });
     }
@@ -49,7 +49,7 @@ class TutorController {
     try {
       const id = parseInt(req.params.id);
       await tutorService.deleteTutor(id);
-      return res.status(200).end();
+      return res.status(200).json({ message: "Tutor deleted" });
     } catch (error) {
       return res.status(400).json({ message: "Bad request" });
     }

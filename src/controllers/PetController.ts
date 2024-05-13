@@ -33,7 +33,7 @@ class PetController {
       const id = parseInt(req.params.id);
       const { name, species, carry, weight, dateOfBirth } = req.body;
       await petService.updatePet(id, name, species, carry, weight, dateOfBirth);
-      return res.status(200).end();
+      return res.status(200).json(req.body).end;
     } catch (error) {
       return res.status(400).json({ message: "Bad request" });
     }
@@ -43,7 +43,7 @@ class PetController {
     try {
       const id = parseInt(req.params.id);
       await petService.deletePet(id);
-      return res.status(200).end();
+      return res.status(200).json({ message: "Pet deleted" });
     } catch (error) {
       return res.status(400).json({ message: "Bad request" });
     }
