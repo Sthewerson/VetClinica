@@ -10,7 +10,7 @@ npm install
 
 ## 📦 Execução
 ### Inicie o servidor:
-npm run deev
+npm run dev
 
 ## 🛠️ Tecnologias Utilizadas
 - Node.js
