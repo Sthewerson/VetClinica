@@ -4,7 +4,7 @@ Esta é uma API RESTful para gerenciar tutores e pets, utilizando Node.js, Expre
 
 ## 🚀 Instalação
 ### Clone o repositório:
-**git clone https://github.com/Sthewerson/VetClinica.git
+git clone https://github.com/Sthewerson/VetClinica.git
 ### instale  as dependências:
 npm install
 
